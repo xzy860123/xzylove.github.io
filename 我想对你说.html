@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我想对你说...</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .heart {
+            position: absolute;
+            pointer-events: none;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+        }
+        
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #fff;
+            border-radius: 50%;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .5; }
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: 3px solid #ff69b4;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: 2px;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #ff69b4; }
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ff69b4;
+            animation: confetti-fall 3s linear forwards;
+        }
+        
+        @keyframes confetti-fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .glow {
+            filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.7));
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-pink-100 via-purple-100 to-blue-100 min-h-screen">
+    <!-- 心形背景装饰 -->
+    <div class="fixed inset-0 pointer-events-none z-0">
+        <div class="heart" style="top: 20%; left: 15%; animation-delay: 0s;">
+            <i class="fas fa-heart text-pink-400 text-2xl"></i>
+        </div>
+        <div class="heart" style="top: 60%; left: 25%; animation-delay: 1s;">
+            <i class="fas fa-heart text-red-400 text-3xl"></i>
+        </div>
+        <div class="heart" style="top: 30%; left: 85%; animation-delay: 2s;">
+            <i class="fas fa-heart text-pink-500 text-xl"></i>
+        </div>
+        <div class="heart" style="top: 70%; left: 80%; animation-delay: 3s;">
+            <i class="fas fa-heart text-red-500 text-2xl"></i>
+        </div>
+    </div>
+
+    <!-- 星星背景 -->
+    <div class="fixed inset-0 pointer-events-none z-0">
+        <div class="sparkle" style="top: 10%; left: 20%; animation-delay: 0s;"></div>
+        <div class="sparkle" style="top: 25%; left: 80%; animation-delay: 0.5s;"></div>
+        <div class="sparkle" style="top: 40%; left: 15%; animation-delay: 1s;"></div>
+        <div class="sparkle" style="top: 55%; left: 90%; animation-delay: 1.5s;"></div>
+        <div class="sparkle" style="top: 70%; left: 10%; animation-delay: 2s;"></div>
+        <div class="sparkle" style="top: 85%; left: 95%; animation-delay: 2.5s;"></div>
+    </div>
+
+    <div class="container mx-auto px-4 py-8 relative z-10">
+        <!-- 主标题区域 -->
+        <div class="text-center mb-12">
+            <h1 class="text-5xl md:text-6xl font-bold text-pink-600 mb-6 glow pulse">
+                <span class="typewriter">我想对你说...</span>
+            </h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                在这浪漫的时刻，我想向你表达我最真挚的心意...
+            </p>
+        </div>
+
+        <!-- 图片区域 -->
+        <div class="flex justify-center mb-12">
+            <div class="relative rounded-full overflow-hidden shadow-2xl glow">
+                <img src="https://picsum.photos/seed/couple-love/400/400.jpg" alt="浪漫瞬间" class="w-80 h-80 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-r from-pink-200 to-purple-200 opacity-70"></div>
+            </div>
+        </div>
+
+        <!-- 表白信息卡片 -->
+        <div class="max-w-3xl mx-auto bg-white bg-opacity-80 backdrop-blur-sm rounded-3xl shadow-xl p-8 mb-12">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-pink-600 mb-4">亲爱的谢赵宇：</h2>
+                <div class="space-y-4 text-lg text-gray-700 leading-relaxed">
+                    <p>自从遇见你的那一刻起，我的世界就变得不一样了。</p>
+                    <p>你的笑容像阳光一样温暖，你的声音像音乐一样动人。</p>
+                    <p>每一次与你相处，都让我更加确定——你就是我要找的那个人。</p>
+                    <p>无论未来有多少风雨，我都想牵着你的手一起走过。</p>
+                    <p>因为有你，生命才变得更加美好。</p>
+                </div>
+            </div>
+
+            <!-- 按钮组 -->
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+                <button id="yesBtn" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-4 px-8 rounded-full text-xl transition-all duration-300 transform hover:scale-105 shadow-lg glow">
+                    我愿意❤️
+                </button>
+                <button id="noBtn" class="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-4 px-8 rounded-full text-xl transition-all duration-300 transform hover:rotate-12 shadow-lg">
+                    再想想🤔(no)
+                </button>
+            </div>
+        </div>
+
+        <!-- 回应区域 -->
+        <div id="responseArea" class="max-w-3xl mx-auto bg-white bg-opacity-80 backdrop-blur-sm rounded-3xl shadow-xl p-8 hidden">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold text-pink-600 mb-4">太棒了！💕</h3>
+                <p class="text-lg text-gray-700 mb-6">
+                    能得到你的肯定，是我今天最开心的事！让我们一起创造更多美好的回忆吧～
+                </p>
+                <div class="flex justify-center space-x-4">
+                    <button class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        <i class="fas fa-heart mr-2"></i>继续甜蜜时光
+                    </button>
+                    <button class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        <i class="fas fa-share-alt mr-2"></i>分享这份喜悦
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 庆祝彩带效果 -->
+    <div id="celebration" class="fixed inset-0 pointer-events-none z-50 hidden">
+        <canvas id="confettiCanvas" class="w-full h-full"></canvas>
+    </div>
+
+    <script>
+        // Yes按钮点击事件
+        document.getElementById('yesBtn').addEventListener('click', function() {
+            // 显示回应区域
+            document.getElementById('responseArea').classList.remove('hidden');
+            
+            // 创建庆祝效果
+            createCelebration();
+            
+            // 播放音效（如果需要）
+            playSound('success');
+        });
+
+        // No按钮点击事件
+        document.getElementById('noBtn').addEventListener('click', function() {
+            // 让按钮稍微移动一下，增加趣味性
+            this.style.transform = 'translateX(15px)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 200);
+            
+            // 显示小提示
+            showHint();
+        });
+
+        // 创建庆祝效果
+        function createCelebration() {
+            const celebration = document.getElementById('celebration');
+            celebration.classList.remove('hidden');
+            
+            const canvas = document.getElementById('confettiCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            // 设置canvas大小
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            const confetti = [];
+            const colors = ['#ff69b4', '#ff1493', '#da70d6', '#ffc0cb', '#ffb6c1'];
+            
+            // 创建彩带粒子
+            for (let i = 0; i < 150; i++) {
+                confetti.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height - canvas.height,
+                    vx: Math.random() * 6 - 4,
+                    vy: Math.random() * 3 + 3,
+                    size: Math.random() * 10 + 5,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    rotation: Math.random() * 360
+                });
+            }
+            
+            function drawConfetti() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                confetti.forEach(p => {
+                    ctx.save();
+                    ctx.translate(p.x, p.y);
+                    ctx.rotate(p.rotation * Math.PI / 180);
+                    ctx.fillStyle = p.color;
+                    ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+                    ctx.restore();
+                    
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.rotation += 5;
+                    
+                    // 重置超出屏幕的粒子
+                    if (p.y > canvas.height) {
+                        p.y = -p.size;
+                        p.x = Math.random() * canvas.width;
+                    }
+                });
+                
+                requestAnimationFrame(drawConfetti);
+            }
+            
+            drawConfetti();
+            
+            // 5秒后停止庆祝效果
+            setTimeout(() => {
+                celebration.classList.add('hidden');
+            }, 5000);
+        }
+
+        // 显示小提示
+        function showHint() {
+            const hint = document.createElement('div');
+            hint.className = 'fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white bg-opacity-90 backdrop-blur-sm rounded-lg p-4 shadow-xl z-50';
+            hint.innerHTML = `
+                <div class="text-center">
+                    <i class="fas fa-heart text-pink-500 text-2xl mb-2"></i>
+                    <p class="text-gray-700">再想想嘛～<br>我真的很认真哦！</p>
+                </div>
+            `;
+            
+            document.body.appendChild(hint);
+            
+            setTimeout(() => {
+                hint.remove();
+            }, 3000);
+        }
+
+        // 播放音效
+        function playSound(type) {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            if (type === 'success') {
+                // 成功音效：欢快的上升音阶
+                oscillator.frequency.setValueAtTime(523.25, audioContext.currentTime); // C5
+                oscillator.frequency.setValueAtTime(659.25, audioContext.currentTime + 0.1); // E5
+                oscillator.frequency.setValueAtTime(783.99, audioContext.currentTime + 0.2); // G5
+                oscillator.frequency.setValueAtTime(1046.50, audioContext.currentTime + 0.3); // C6
+                
+                gainNode.gain.setValueAtTime(0, audioContext.currentTime);
+                gainNode.gain.linearRampToValueAtTime(0.1, audioContext.currentTime + 0.05);
+                gainNode.gain.linearRampToValueAtTime(0, audioContext.currentTime + 0.4);
+                
+                oscillator.type = 'sine';
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.4);
+            } else {
+                // 默认音效
+                oscillator.frequency.setValueAtTime(261.63, audioContext.currentTime); // C4
+                oscillator.type = 'sine';
+                
+                gainNode.gain.setValueAtTime(0, audioContext.currentTime);
+                gainNode.gain.linearRampToValueAtTime(0.1, audioContext.currentTime + 0.05);
+                gainNode.gain.linearRampToValueAtTime(0, audioContext.currentTime + 0.2);
+                
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.2);
+            }
+        }
+
+        // 窗口调整大小时重新设置canvas
+        window.addEventListener('resize', function() {
+            const canvas = document.getElementById('confettiCanvas');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
